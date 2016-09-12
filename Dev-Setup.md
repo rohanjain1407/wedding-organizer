@@ -4,3 +4,4 @@
   3. Setup MYSQL
   4. Setup Jetty
   5. Liquibase
+  6. Iphone and Android SDK
