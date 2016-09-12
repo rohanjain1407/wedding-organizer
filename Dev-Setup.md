@@ -2,6 +2,6 @@
   1. Install Maven - apache-maven-3.3.9
   2. Install Java 8 - Java SE Development Kit 8u102
   3. Setup MYSQL
-  4. Setup Jetty
+  4. Setup Jetty - 9.3.11.v20160721
   5. Liquibase
   6. Iphone and Android SDK
