@@ -1,0 +1,7 @@
+1.
+CREATE TABLE `weddingapi`.`wedding` (
+  `uid` INT NOT NULL,
+  `person1` VARCHAR(255) NULL,
+  `person2` VARCHAR(255) NULL,
+  `description` VARCHAR(255) NULL,
+  PRIMARY KEY (`uid`));
