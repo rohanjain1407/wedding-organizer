@@ -31,6 +31,7 @@ public class WeddingListener {
         Transaction tx = session.beginTransaction();
         try {
             List<Wedding> weddingList = session.createCriteria(Wedding.class).list();
+            tx.commit();
         	GenericEntity<List<Wedding>> entity = new GenericEntity<List<Wedding>>(weddingList){};
         	return Response.status(200).entity(entity).header("Access-Control-Allow-Origin", "*").build();
         }
@@ -38,7 +39,6 @@ public class WeddingListener {
             throw ex;
         }
         finally {
-            tx.commit();
             session.close();
         }
 	}
