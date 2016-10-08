@@ -1,8 +1,13 @@
 package com.weddingapi;
 
+//project includes
 import com.weddingapi.db.Wedding;
 
+//hibernate includes
 import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+//java rest api libraries
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.Response;
@@ -10,12 +15,8 @@ import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-/*
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
-*/
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+
+//utils
 import java.util.List;
 
 /**
