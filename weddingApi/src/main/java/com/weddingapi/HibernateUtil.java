@@ -14,6 +14,7 @@ public class HibernateUtil {
         try {
             // Create the SessionFactory from hibernate.cfg.xml
             // There should be only one sessionfactory per data source
+            //System.out.println("Still Building Session");
             return new Configuration().configure().buildSessionFactory();
         }
         catch (Throwable ex) {
