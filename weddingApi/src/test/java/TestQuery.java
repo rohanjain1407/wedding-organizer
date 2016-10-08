@@ -20,6 +20,7 @@ public class TestQuery {
     public void testDatabaseConnectivity() {
         Session session = HibernateUtil.getSessionFactory().openSession();
         List<Wedding> listOfTable = session.createCriteria(Wedding.class).list();
+        System.out.println(listOfTable.size());
         session.close();
     }
 }

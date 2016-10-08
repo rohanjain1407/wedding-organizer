@@ -5,3 +5,7 @@ CREATE TABLE `weddingapi`.`wedding` (
   `person2` VARCHAR(255) NULL,
   `description` VARCHAR(255) NULL,
   PRIMARY KEY (`uid`));
+
+USE 'weddingapi';
+
+ALTER TABLE wedding ADD address varchar(255) NULL;
