@@ -1,6 +1,7 @@
-package com.weddingapi;
+package com.weddingapi.queryAPI;
 
 //project includes
+import com.weddingapi.HibernateUtil;
 import com.weddingapi.db.Wedding;
 
 //hibernate includes

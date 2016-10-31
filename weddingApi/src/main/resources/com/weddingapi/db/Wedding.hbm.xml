@@ -10,7 +10,7 @@ This table stores enteries for every wedding
 @author Rohan Jain
         ]]>
         </meta>
-        <id name="uid" type="integer" unsaved-value="0">
+        <id name="weddingId" type="string" unsaved-value="0">
             <generator class="native"/>
         </id>
 
