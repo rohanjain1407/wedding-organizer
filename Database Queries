@@ -9,3 +9,11 @@ CREATE TABLE `weddingapi`.`wedding` (
 USE 'weddingapi';
 
 ALTER TABLE wedding ADD address varchar(255) NULL;
+
+Execute from here - 
+
+ALTER TABLE `weddingapi`.`wedding` 
+CHANGE COLUMN `uid` `uid` VARCHAR(255) NOT NULL ;
+
+ALTER TABLE `weddingapi`.`wedding` 
+CHANGE COLUMN `uid` `weddingId` VARCHAR(255) NOT NULL ;
