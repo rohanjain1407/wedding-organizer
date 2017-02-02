@@ -17,3 +17,10 @@ CHANGE COLUMN `uid` `uid` VARCHAR(255) NOT NULL ;
 
 ALTER TABLE `weddingapi`.`wedding` 
 CHANGE COLUMN `uid` `weddingId` VARCHAR(255) NOT NULL ;
+
+CREATE TABLE weddingapi.device_token (
+  deviceToken varchar(255) NOT NULL,
+  weddingId VARCHAR(255) NOT NULL,
+  PRIMARY KEY (deviceToken),
+  FOREIGN KEY (weddingId) REFERENCES weddingapi.wedding(weddingId));
+

@@ -1,10 +1,11 @@
-import com.weddingapi.HibernateUtil;
+import com.weddingapi.util.HibernateUtil;
+import com.weddingapi.db.DeviceToken;
 import com.weddingapi.db.Wedding;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
+import org.junit.Ignore;
 import org.junit.Test;
-
-import java.util.List;
 
 /**
  * @author Rohan Jain
@@ -17,6 +18,7 @@ public class TestQuery {
      * by retreiving all data in wedding table
      * @param args
      */
+    @org.junit.Ignore
     @Test
     public void testDatabaseConnectivity() {
         //test DB
@@ -27,5 +29,27 @@ public class TestQuery {
         //List<Wedding> listOfTable = session.createCriteria(Wedding.class).list();
         //System.out.println(listOfTable.size());
         session.close();
+    }
+    @Ignore
+    @Test
+    public void testInsertion() {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = session.beginTransaction();
+        try {
+
+            Wedding wedding = (Wedding) session.get(Wedding.class, "1");
+            DeviceToken token = new DeviceToken("dev1", wedding);
+            session.save(token);
+            tx.commit();
+            //return Response.status(200).entity(token).header("Access-Control-Allow-Origin", "*").build();
+        }
+        catch (Exception ex) {
+            throw ex;
+        }
+        finally {
+            Wedding wedding2 = (Wedding) session.get(Wedding.class, "1");
+            wedding2.getDeviceTokens();
+            session.close();
+        }
     }
 }

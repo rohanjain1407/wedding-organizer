@@ -8,6 +8,7 @@
         <property name="javax.persistence.validation.mode">none</property>
         <!-- List of XML mapping files -->
         <mapping resource="com/weddingapi/db/Wedding.hbm.xml" />
+        <mapping resource="com/weddingapi/db/DeviceToken.hbm.xml" />
 
     </session-factory>
 </hibernate-configuration>

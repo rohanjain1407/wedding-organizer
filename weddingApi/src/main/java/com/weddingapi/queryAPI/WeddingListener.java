@@ -1,7 +1,7 @@
 package com.weddingapi.queryAPI;
 
 //project includes
-import com.weddingapi.HibernateUtil;
+import com.weddingapi.util.HibernateUtil;
 import com.weddingapi.db.Wedding;
 
 //hibernate includes
@@ -13,7 +13,6 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.GenericEntity;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
