@@ -1,6 +1,6 @@
 package com.weddingapi.getAPI;
 
-import com.weddingapi.HibernateUtil;
+import com.weddingapi.util.HibernateUtil;
 import com.weddingapi.db.Wedding;
 import org.hibernate.Session;
 import org.hibernate.Transaction;

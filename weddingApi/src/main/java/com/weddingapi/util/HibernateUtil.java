@@ -1,4 +1,4 @@
-package com.weddingapi;
+package com.weddingapi.util;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
