@@ -7,22 +7,25 @@
     _*assuming server is running on port 8080_
 
 
-Wedding API
+##Wedding API
 
-Wedding
-Get (GET)
-http://localhost:8080/weddingApi/rest/wedding/get/1
+###Wedding
+Get 
+Method : GET
+API : http://localhost:8080/weddingApi/rest/wedding/get/{id}
 
-Query (GET)
-http://localhost:8080/weddingApi/rest/wedding/query
+Query 
+Method : GET
+API : http://localhost:8080/weddingApi/rest/wedding/query
 
-Device Token
-Add (POST)
-http://localhost:8080/weddingApi/rest/deviceToken/add
+###Device Token
+Add 
+Method : POST
+API : http://localhost:8080/weddingApi/rest/deviceToken/add
 BODY -
 {
     "device_token": "token_here",
-    "weddingId": "1"
+    "weddingId": "wedding_id_here"
 }
 
 
