@@ -4,7 +4,7 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="com.weddingapi.db">
 
-    <class name="DeviceToken" table="device_token">
+    <class name="DeviceToken" table="deviceToken">
         <meta attribute="class-description"><![CDATA[
 This table stores entries for device tokens
 @author Rohan Jain
