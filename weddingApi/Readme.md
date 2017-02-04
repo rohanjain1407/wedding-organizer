@@ -5,3 +5,27 @@
   4. Make the rest api call  
     `http://localhost:8080/weddingApi/wedding/weddinginfo`  
     _*assuming server is running on port 8080_
+
+
+##Wedding API
+
+###Wedding
+Get 
+Method : GET
+API : http://localhost:8080/weddingApi/rest/wedding/get/{id}
+
+Query 
+Method : GET
+API : http://localhost:8080/weddingApi/rest/wedding/query
+
+###Device Token
+Add 
+Method : POST
+API : http://localhost:8080/weddingApi/rest/deviceToken/add
+BODY -
+{
+    "device_token": "token_here",
+    "weddingId": "wedding_id_here"
+}
+
+
