@@ -26,7 +26,7 @@ public class DeviceTokenResource {
         JSONObject jsonObject = new JSONObject(jsonString);
 
         String weddingId = jsonObject.getString("weddingId");
-        String deviceToken = jsonObject.getString("device_token");
+        String deviceToken = jsonObject.getString("deviceToken");
 
         if (StringUtil.isEmpty(weddingId) || StringUtil.isEmpty(deviceToken)) {
             return Response.status(400).entity("Request body is missing Wedding Id or " +
@@ -49,13 +49,4 @@ public class DeviceTokenResource {
             session.close();
         }
     }
-
-    /**
-     * To retreive device tokens from wedding object -
-     *
-     session.createCriteria(DeviceToken.class).add(Restrictions.eq(
-     "Wedding",wedding
-     )).list()
-
-     */
 }
