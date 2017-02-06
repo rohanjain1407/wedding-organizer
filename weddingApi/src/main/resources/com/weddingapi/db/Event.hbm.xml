@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+        PUBLIC "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.weddingapi.db">
+
+    <class name="Event" table="event">
+        <meta attribute="class-description"><![CDATA[
+This table stores enteries for different kinds of wedding events
+@author Rohan Jain
+        ]]>
+        </meta>
+        <id name="uid" type="long" unsaved-value="0">
+            <generator class="native"/>
+        </id>
+
+        <property name="eventName" column="eventName" type="string"/>
+    </class>
+</hibernate-mapping>

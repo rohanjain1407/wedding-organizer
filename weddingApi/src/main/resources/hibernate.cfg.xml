@@ -9,6 +9,7 @@
         <!-- List of XML mapping files -->
         <mapping resource="com/weddingapi/db/Wedding.hbm.xml" />
         <mapping resource="com/weddingapi/db/DeviceToken.hbm.xml" />
-
+        <mapping resource="com/weddingapi/db/Event.hbm.xml" />
+        <mapping resource="com/weddingapi/db/WeddingEvent.hbm.xml" />
     </session-factory>
 </hibernate-configuration>

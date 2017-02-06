@@ -52,4 +52,23 @@ public class TestQuery {
             session.close();
         }
     }
+
+    @Ignore
+    @Test
+    public void testInsertEvent() {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = session.beginTransaction();
+        try {
+
+            //session.save(event);
+            tx.commit();
+            //return Response.status(200).entity(token).header("Access-Control-Allow-Origin", "*").build();
+        }
+        catch (Exception ex) {
+            throw ex;
+        }
+        finally {
+            session.close();
+        }
+    }
 }

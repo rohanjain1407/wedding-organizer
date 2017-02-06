@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping
+        PUBLIC "-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.weddingapi.db">
+
+    <class name="WeddingEvent" table="weddingEvent">
+        <meta attribute="class-description"><![CDATA[
+This table stores events belonging to a wedding
+@author Rohan Jain
+        ]]>
+        </meta>
+        <id name="uid" type="long" unsaved-value="0">
+            <generator class="native"/>
+        </id>
+
+        <property name="venue" column="venue" type="string"/>
+        <property name="dueTime" column="dueTime" type="timestamp"/>
+        <property name="expired" type="boolean">
+            <column name="expired" default="false" />
+        </property>
+
+        <many-to-one name="Wedding" class="com.weddingapi.db.Wedding"
+                     column="weddingId" />
+        <many-to-one name="Event" class="com.weddingapi.db.Event"
+                     column="uid" />
+    </class>
+</hibernate-mapping>
