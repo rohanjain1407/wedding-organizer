@@ -23,6 +23,6 @@ This table stores events belonging to a wedding
         <many-to-one name="Wedding" class="com.weddingapi.db.Wedding"
                      column="weddingId" />
         <many-to-one name="Event" class="com.weddingapi.db.Event"
-                     column="uid" />
+                     column="eventId" />
     </class>
 </hibernate-mapping>

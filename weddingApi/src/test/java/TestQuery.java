@@ -1,11 +1,13 @@
+import com.weddingapi.db.Event;
+import com.weddingapi.db.WeddingEvent;
 import com.weddingapi.util.HibernateUtil;
-import com.weddingapi.db.DeviceToken;
 import com.weddingapi.db.Wedding;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 import org.junit.Ignore;
 import org.junit.Test;
+
 
 /**
  * @author Rohan Jain
@@ -30,16 +32,17 @@ public class TestQuery {
         //System.out.println(listOfTable.size());
         session.close();
     }
-    @Ignore
+@Ignore
     @Test
     public void testInsertion() {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
         try {
 
-            Wedding wedding = (Wedding) session.get(Wedding.class, "1");
-            DeviceToken token = new DeviceToken("dev1", wedding);
-            session.save(token);
+            Event event = (Event) session.get(Event.class,1L);
+            Wedding wedding = (Wedding) session.get(Wedding.class,"2");
+            WeddingEvent weddingEvent = new WeddingEvent(event, wedding,"Mumbai",null,false);
+            session.save(weddingEvent);
             tx.commit();
             //return Response.status(200).entity(token).header("Access-Control-Allow-Origin", "*").build();
         }
@@ -47,8 +50,6 @@ public class TestQuery {
             throw ex;
         }
         finally {
-            Wedding wedding2 = (Wedding) session.get(Wedding.class, "1");
-            wedding2.getDeviceTokens();
             session.close();
         }
     }

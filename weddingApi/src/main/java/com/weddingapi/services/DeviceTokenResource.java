@@ -21,9 +21,9 @@ public class DeviceTokenResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response add(final String jsonString) {
+    public Response add(final String jsonBody) {
 
-        JSONObject jsonObject = new JSONObject(jsonString);
+        JSONObject jsonObject = new JSONObject(jsonBody);
 
         String weddingId = jsonObject.getString("weddingId");
         String deviceToken = jsonObject.getString("deviceToken");
@@ -38,6 +38,9 @@ public class DeviceTokenResource {
 
         try {
             Wedding wedding = (Wedding) session.get(Wedding.class, weddingId);
+            if(wedding == null) {
+                return Response.status(400).entity("Wedding not found").build();
+            }
             com.weddingapi.db.DeviceToken token = new com.weddingapi.db.DeviceToken(deviceToken, wedding);
             session.save(token);
             tx.commit();
@@ -49,4 +52,14 @@ public class DeviceTokenResource {
             session.close();
         }
     }
+
+    /**
+     * To retreive device tokens from wedding object -
+     *
+     session.createCriteria(DeviceToken.class).add(Restrictions.eq(
+     "Wedding",wedding
+     )).list()
+
+     */
+    //TODO try removing wedding.getdevicetokens() same from event.getWeddingEvents
 }
