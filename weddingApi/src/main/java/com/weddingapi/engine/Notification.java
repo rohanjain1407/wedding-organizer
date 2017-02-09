@@ -35,7 +35,7 @@ public class Notification {
             List<DeviceToken> deviceTokens = session.createCriteria(DeviceToken.class).add(
                     Restrictions.eq("Wedding", weddingEvent.getWedding())).list();
             tx.commit();
-            List<String> tokens = new ArrayList<>();
+            List<String> tokens = new ArrayList<String>();
 
             for(DeviceToken deviceToken : deviceTokens) {
                 tokens.add(deviceToken.getDeviceToken());
