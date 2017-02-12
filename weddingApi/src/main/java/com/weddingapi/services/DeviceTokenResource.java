@@ -1,5 +1,7 @@
 package com.weddingapi.services;
 
+import com.weddingapi.services.error.ApiError;
+import com.weddingapi.services.error.ErrorResponse;
 import com.weddingapi.util.HibernateUtil;
 import com.weddingapi.db.Wedding;
 import com.weddingapi.util.StringUtil;
@@ -29,8 +31,7 @@ public class DeviceTokenResource {
         String deviceToken = jsonObject.getString("deviceToken");
 
         if (StringUtil.isEmpty(weddingId) || StringUtil.isEmpty(deviceToken)) {
-            return Response.status(400).entity("Request body is missing Wedding Id or " +
-                    "Device Token or has Invalid data").build();
+            return new ErrorResponse(ApiError.INVALID_REQUEST).createErrorResponse();
         }
 
         Session session = HibernateUtil.getSessionFactory().openSession();
@@ -39,7 +40,7 @@ public class DeviceTokenResource {
         try {
             Wedding wedding = (Wedding) session.get(Wedding.class, weddingId);
             if(wedding == null) {
-                return Response.status(400).entity("Wedding not found").build();
+                return new ErrorResponse(ApiError.INVALID_ENTRY).createErrorResponse();
             }
             com.weddingapi.db.DeviceToken token = new com.weddingapi.db.DeviceToken(deviceToken, wedding);
             session.save(token);
@@ -47,7 +48,7 @@ public class DeviceTokenResource {
             return Response.status(200).entity(token).header("Access-Control-Allow-Origin", "*").build();
         } catch (Exception ex) {
             //log an exception here//
-            return Response.status(400).entity("Error processing the request").build();
+            return new ErrorResponse(ApiError.UNKNOWN).createErrorResponse();
         } finally {
             session.close();
         }
