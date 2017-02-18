@@ -11,8 +11,18 @@ package com.weddingapi.services.error;
  */
 public enum ApiError {
 
-    DUPLICATE_ENTRY,
-    INVALID_ENTRY,
-    INVALID_REQUEST,
-    UNKNOWN
+    DUPLICATE_RECORD(404),
+    RECORD_NOT_FOUND(404),
+    INVALID_REQUEST(400),
+    UNKNOWN(400);
+
+    private final int status;
+
+    ApiError(int status) {
+        this.status=status;
+    }
+
+    public int getStatus() {
+        return this.status;
+    }
 }

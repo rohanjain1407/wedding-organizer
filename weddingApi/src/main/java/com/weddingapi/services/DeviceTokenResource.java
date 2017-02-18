@@ -40,7 +40,7 @@ public class DeviceTokenResource {
         try {
             Wedding wedding = (Wedding) session.get(Wedding.class, weddingId);
             if(wedding == null) {
-                return new ErrorResponse(ApiError.INVALID_ENTRY).createErrorResponse();
+                return new ErrorResponse(ApiError.RECORD_NOT_FOUND).createErrorResponse();
             }
             com.weddingapi.db.DeviceToken token = new com.weddingapi.db.DeviceToken(deviceToken, wedding);
             session.save(token);
