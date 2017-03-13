@@ -1,5 +1,7 @@
 package com.weddingapi.services;
 
+import com.weddingapi.services.error.ApiError;
+import com.weddingapi.services.error.ErrorResponse;
 import com.weddingapi.util.HibernateUtil;
 import com.weddingapi.db.Wedding;
 import org.hibernate.Session;
@@ -21,6 +23,13 @@ import java.util.List;
 @Path("/wedding")
 public class WeddingResource {
 
+    private static final String PROPERTY_WEDDING_ID = "weddingId";
+
+    /**
+     * Get wedding by its wedding id
+     * @param weddingId
+     * @return
+     */
     @GET
     @Path("/get/{id}")
     @Produces({MediaType.APPLICATION_JSON})
@@ -29,19 +38,24 @@ public class WeddingResource {
         Transaction tx = session.beginTransaction();
         try {
             Wedding wed = (Wedding) session.createCriteria(Wedding.class)
-                    .add(Restrictions.eq("weddingId", weddingId)).uniqueResult();
+                    .add(Restrictions.eq(PROPERTY_WEDDING_ID, weddingId)).uniqueResult();
+
             tx.commit();
             wed = wed != null ? wed : new Wedding();
             return Response.status(200).entity(wed).header("Access-Control-Allow-Origin", "*").build();
         }
         catch (Exception ex) {
-            throw ex;
+            return new ErrorResponse(ApiError.UNKNOWN).createError();
         }
         finally {
             session.close();
         }
     }
 
+    /**
+     * Retrieve all weddings in database
+     * @return
+     */
     @GET
     @Path("/query")
     @Produces({MediaType.APPLICATION_JSON})
@@ -55,7 +69,7 @@ public class WeddingResource {
             return Response.status(200).entity(entity).header("Access-Control-Allow-Origin", "*").build();
         }
         catch (Exception ex) {
-            throw ex;
+            return new ErrorResponse(ApiError.UNKNOWN).createError();
         }
         finally {
             session.close();

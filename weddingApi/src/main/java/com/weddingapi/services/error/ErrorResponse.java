@@ -22,7 +22,7 @@ public class ErrorResponse {
      *
      * @return
      */
-    public Response createErrorResponse() {
+    public Response createError() {
         return Response.status(error.getStatus()).entity(createJsonError()).build();
     }
 

@@ -22,8 +22,6 @@ CREATE TABLE weddingapi.deviceToken (
   PRIMARY KEY (deviceToken),
   FOREIGN KEY (weddingId) REFERENCES weddingapi.wedding(weddingId));
 
-Execute from here -
-
 CREATE TABLE weddingapi.event (
   uid BIGINT(20) NOT NULL AUTO_INCREMENT,
   eventName VARCHAR(255) NOT NULL,
@@ -39,3 +37,8 @@ expired BOOLEAN NOT NULL DEFAULT 0,
 CONSTRAINT pk_uid PRIMARY KEY (uid),
 CONSTRAINT fk_weddingId FOREIGN KEY (weddingId) REFERENCES weddingapi.wedding(weddingId),
 CONSTRAINT fk_eventId FOREIGN KEY (eventId) REFERENCES weddingapi.event(uid));
+
+Execute from here -
+
+ALTER TABLE `weddingapi`.`weddingEvent` 
+ADD COLUMN `description` TEXT NULL AFTER `expired`;

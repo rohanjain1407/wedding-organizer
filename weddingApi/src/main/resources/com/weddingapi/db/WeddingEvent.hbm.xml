@@ -19,6 +19,7 @@ This table stores events belonging to a wedding
         <property name="expired" type="boolean">
             <column name="expired" default="false" />
         </property>
+        <property name="description" column="description" type="text"/>
 
         <many-to-one name="Wedding" class="com.weddingapi.db.Wedding"
                      column="weddingId" />

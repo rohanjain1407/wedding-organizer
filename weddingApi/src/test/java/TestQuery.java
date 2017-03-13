@@ -39,11 +39,11 @@ public class TestQuery {
         Transaction tx = session.beginTransaction();
         try {
 
-            Event event = (Event) session.get(Event.class,1L);
+           /* Event event = (Event) session.get(Event.class,1L);
             Wedding wedding = (Wedding) session.get(Wedding.class,"2");
             WeddingEvent weddingEvent = new WeddingEvent(event, wedding,"Mumbai",null,false);
             session.save(weddingEvent);
-            tx.commit();
+            tx.commit();*/
             //return Response.status(200).entity(token).header("Access-Control-Allow-Origin", "*").build();
         }
         catch (Exception ex) {

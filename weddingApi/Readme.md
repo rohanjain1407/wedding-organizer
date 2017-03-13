@@ -26,6 +26,19 @@ BODY :
 `{  
     "deviceToken": "token_here",  
     "weddingId": "wedding_id_here"  
-}`  
+}`
+
+Delete
+Method : POST
+API : `http://localhost:8080/weddingApi/rest/deviceToken/delete`
+BODY :
+`{
+    "deviceToken": "device_token_here"
+}`
+
+###Wedding Event
+Get
+Method : GET
+API : `http://localhost:8080/weddingApi/rest/weddingEvent/query/weddingId/{id}`
 
 
